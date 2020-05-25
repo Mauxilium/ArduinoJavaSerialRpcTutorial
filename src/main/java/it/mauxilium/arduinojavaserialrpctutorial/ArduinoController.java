@@ -2,7 +2,7 @@ package it.mauxilium.arduinojavaserialrpctutorial;
 
 
 import it.mauxilium.arduinojavaserialrpc.ArduinoJavaSerialRpc;
-import it.mauxilium.arduinojavaserialrpc.exception.ArduinoRpcActionFailsException;
+import it.mauxilium.arduinojavaserialrpc.exception.ArduinoRpcJavaFailsException;
 
 import java.io.IOException;
 
@@ -88,8 +88,8 @@ public class ArduinoController extends ArduinoJavaSerialRpc {
                     // The following check is required in order to manage when the disconnect is called during the wait
                     if (isActive) {
                         try {
-                            response = arduino.executeRemoteAction(ARDUINO_FUNCTION_TO_CALL, status);
-                        } catch (ArduinoRpcActionFailsException e) {
+                            response = arduino.executeRemoteFunction(ARDUINO_FUNCTION_TO_CALL, status);
+                        } catch (ArduinoRpcJavaFailsException e) {
                             System.out.println("Sorry, failure with Arduino card: " + e.getLocalizedMessage());
                         }
                         System.out.println("Executed Led Switch number: " + response);

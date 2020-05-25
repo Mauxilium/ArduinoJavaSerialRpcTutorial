@@ -23,7 +23,7 @@ void setup() {
   pinMode(inputPin, INPUT_PULLUP);
   pinMode(LED_BUILTIN, OUTPUT);
   
-  rpc.registerArduinoAction("LedUpdate", ledUpdate);
+  rpc.registerArduinoFunction("LedUpdate", ledUpdate);
 }
 
 void serialEvent() {
@@ -49,9 +49,9 @@ void loop() {
 
   if (actualState != buttonPressed) {
     if (buttonPressed) {
-      rpc.executeRemoteAction("button", "PRESSED");
+      rpc.executeRemoteMethod("button", "PRESSED");
     } else {
-      rpc.executeRemoteAction("button", "RELEASED");
+      rpc.executeRemoteMethod("button", "RELEASED");
     }
     actualState = buttonPressed;
   }
