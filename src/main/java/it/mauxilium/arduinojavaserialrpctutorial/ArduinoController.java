@@ -46,7 +46,7 @@ public class ArduinoController extends ArduinoJavaSerialRpc {
     /**
      * Implements the simple activation business logic of embedded Arduino Led.
      * This method call the Sketch registered function during the setup:
-     *      arpc.registerArduinoAction("LedUpdate", ledControl);
+     *      arpc.registerArduinoFunction("LedUpdate", ledControl);
      * @param status the driving value
      */
     private void manageStatus(final String status) {
